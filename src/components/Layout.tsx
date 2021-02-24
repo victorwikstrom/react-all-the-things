@@ -1,19 +1,23 @@
 import React, { Component, CSSProperties } from "react";
-import Content from "./Content";
-import Navbar from "./Navbar";
+import ViewContainer from "./ViewContainer";
+import Header from "./Header";
 
 export class Layout extends Component {
   render() {
     return (
       <div style={rootStyle}>
-        <Navbar />
-        <Content />
+        <Header />
+        <ViewContainer />
       </div>
     );
   }
 }
 const rootStyle: CSSProperties = {
   backgroundColor: "#000000",
+  height: "100%",
+  display: "flex",
+  flex: 1,
+  flexDirection: "column",
 };
 
 export default Layout;
