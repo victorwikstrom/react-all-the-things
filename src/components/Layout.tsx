@@ -1,23 +1,33 @@
-import React, { Component, CSSProperties } from "react";
-import ViewContainer from "./ViewContainer";
-import Header from "./Header";
+import React, { Component, CSSProperties } from 'react';
+import Navbar from './navbar';
+import ViewContainer from './viewContainer/viewContainer';
+import { fullScreen } from '../css';
+import { RouteComponentProps } from 'react-router-dom';
 
-export class Layout extends Component {
-  render() {
-    return (
-      <div style={rootStyle}>
-        <Header />
-        <ViewContainer />
-      </div>
-    );
-  }
+interface Props {}
+
+interface State {
+    currentView: string
 }
-const rootStyle: CSSProperties = {
-  backgroundColor: "#000000",
-  height: "100%",
-  display: "flex",
-  flex: 1,
-  flexDirection: "column",
+
+/** React class component */
+export default class Layout extends Component<Props, State> {
+
+    render() {
+        return (
+            <div style={{ ...columnFlex, ...fullScreen, ...background }}>
+                <Navbar/>
+                <ViewContainer/>
+            </div>
+        );
+    }
+}
+
+const columnFlex: CSSProperties = {
+    display: 'flex',
+    flexDirection: 'column',
 };
 
-export default Layout;
+const background: CSSProperties = {
+    background: '#1f1f1f'
+}
