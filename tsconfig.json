@@ -1,17 +1,15 @@
 {
-    "compilerOptions": {
-        "outDir": "./dist/",
-        "sourceMap": true,
-        "noImplicitAny": true,
-        "strictNullChecks": true,
-        "strict": true,
-        "module": "commonjs",
-        "target": "es5",
-        "jsx": "react",
-        "allowSyntheticDefaultImports": true,
-        "esModuleInterop": true
-    },
-    "include": [
-        "./src/**/*"
-    ]
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strict": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es5",
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "lib": ["ES2015", "DOM"]
+  },
+  "include": ["./src/**/*"]
 }
