@@ -1,17 +1,22 @@
-import React, { Suspense, lazy } from "react";
-import { BrowserRouter as Router } from "react-router-dom";
-const Layout = lazy(() => import("./Layout"));
+import React, { Suspense } from 'react';
+import Layout from './layout';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Spinner from './spinner';
+import ErrorBoundary from './errorBoundary';
 
 /**
  * Application top level component. This is a good place for future
  * top level components - ErrorBoundary, Provider & Suspense, etc.
  */
 export default function App() {
-  return (
-    <Router>
-      <Suspense fallback={<div>Loading...</div>}>
-        <Layout />
-      </Suspense>
-    </Router>
-  );
+
+    return (
+        <Suspense fallback={<Spinner/>}>
+            <Router>
+                <ErrorBoundary>
+                    <Layout/>
+                </ErrorBoundary>
+            </Router>
+        </Suspense>
+    );
 }
